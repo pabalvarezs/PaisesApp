@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pais-input',
@@ -13,12 +13,12 @@ export class PaisInputComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  termino : string = "";
+  @Output() onEnter : EventEmitter<string> = new EventEmitter();
+
+  termino : string = '';
 
   buscar(){
-    console.log(this.termino);
-    
-
+    this.onEnter.emit(this.termino);
   }
 
 }
