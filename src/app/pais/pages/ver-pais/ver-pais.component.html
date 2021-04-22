@@ -1,1 +1,193 @@
-<p>ver-pais works!</p>
+<div *ngIf="!pais; else divPais"
+     class="alert row ">
+        <div class="spinner-border text-primary col-4 " role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="col-8 mx-auto">
+            Espere por favor.....
+        </div>
+</div>
+
+<ng-template #divPais container container-fluid>
+    <div class="row">
+        <div class="col-12">
+            <h1>País: {{ pais.name }}</h1>
+        </div>
+    </div>
+    <div class="row d-flex align-items-center">
+        <div class="col-4">
+            <h3>Bandera</h3>
+            <img [src]="pais.flag" alt="" class="img-thumbnail">
+        </div>
+        <div class="col-8 table-responsive">
+            <table class="table table-hover ">
+                <thead>
+                    <tr>
+                        <th>Datos de Interés</th>
+                    </tr>
+                </thead>    
+                <tbody>
+                    <tr>
+                        <td><strong>Nombre Nativo: </strong> {{ pais.nativeName}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Otras Denominaciones: </strong> {{ pais.altSpellings}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Capital: </strong> {{ pais.capital}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Idioma: </strong> {{pais.languages[0].name}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Población: </strong>{{ pais.population | number}}
+                    </tr>
+                    <tr>
+                        <td><strong>Continente: </strong> {{pais.region}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sub Región: </strong>{{pais.subregion}}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gentilicio: </strong>{{pais.demonym}}</td>
+                    </tr>
+                </tbody>    
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  Geografía
+                </button>
+              </h2>
+              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table class="table table-hover ">
+                        <tbody>
+                            <tr>
+                                <td><strong>Región: </strong></td><td>{{pais.region}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sub Región: </strong></td><td>{{pais.subregion}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Latitud y Longitud (Grados Decimales): </strong></td><td>{{ pais.latlng}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Área: </strong></td><td>{{ pais.area | number}} km2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Países Limítrofes: </strong></td>
+                                <div *ngFor="let pais of pais.borders">
+                                    <td>
+                                        <a href="/pais/{{pais}}">
+                                            {{pais}}
+                                        </a>
+                                    </td>
+                                </div>
+                            </tr>
+                            <tr>
+                                <td><strong>Uso Horario: </strong></td><td>{{ pais.timezones}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Economía
+                </button>
+              </h2>
+              <div id="collapseOne" class="accordion-collapse collapse show " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <table class="table table-hover ">
+                        <tbody>
+                            <tr>
+                                <td><strong>Moneda: </strong></td><td>{{ pais.currencies[0].name}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Símbolo: </strong></td><td>{{ pais.currencies[0].symbol}}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Código: </strong></td><td>{{ pais.currencies[0].code}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+              </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapseTwo">
+                    Idioma
+                  </button>
+                </h2>
+                <div id="collapse3" class="accordion-collapse collapse " aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <table class="table table-hover ">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Idioma: </strong></td><td>{{ pais.languages[0].name}}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Idioma Lenguaje Nativo: </strong></td><td>{{ pais.languages[0].nativeName}}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Código ISO 639_1: </strong></td><td>{{ pais.languages[0].iso639_1}}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Código ISO 639_2: </strong></td><td>{{ pais.languages[0].iso639_2}}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Traducciones: </strong></td>
+                                    <div >
+                                        <td>
+                                                <span class="badge bg-primary me-1 ">
+                                                    {{ pais.translations.br }}
+                                                </span>
+                                                <span class="badge bg-primary me-1">
+                                                    {{ pais.translations.de }}
+                                                </span>
+                                                <span class="badge bg-primary me-1">
+                                                    {{ pais.translations.es }}
+                                                </span>
+                                                <span class="badge bg-primary me-1">
+                                                    {{ pais.translations.fa }}
+                                                </span>
+                                                <span class="badge bg-primary me-1">
+                                                    {{ pais.translations.fr }}
+                                                </span>
+                                                <span class="badge bg-primary me-1">
+                                                    {{ pais.translations.hr }}
+                                                </span>
+                                                <span class="badge bg-primary me-1">
+                                                    {{ pais.translations.it }}
+                                                </span>
+                                                <span class="badge bg-primary me-1">
+                                                    {{ pais.translations.ja }}
+                                                </span>
+                                                <span class="badge bg-primary me-1">
+                                                    {{ pais.translations.nl }}
+                                                </span>
+                                                <span class="badge bg-primary me-1">
+                                                    {{ pais.translations.pt }}
+                                                </span>
+                                        </td>
+                                    </div>
+                                </tr>
+                            </tbody>
+                        </table>                  
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <br>
+    <br>
+</ng-template>
+
