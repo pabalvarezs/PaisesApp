@@ -31,9 +31,6 @@
                         <td><strong>Nombre Nativo: </strong> {{ pais.nativeName}}</td>
                     </tr>
                     <tr>
-                        <td><strong>Otras Denominaciones: </strong> {{ pais.altSpellings}}</td>
-                    </tr>
-                    <tr>
                         <td><strong>Capital: </strong> {{ pais.capital}}</td>
                     </tr>
                     <tr>
@@ -53,6 +50,41 @@
                     </tr>
                 </tbody>    
             </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12"><h4>Traducciones</h4></div>
+        <div class="col-12">
+            <span class="badge bg-primary me-1 ">
+                {{ pais.translations.br }}
+            </span>
+            <span class="badge bg-primary me-1">
+                {{ pais.translations.de }}
+            </span>
+            <span class="badge bg-primary me-1">
+                {{ pais.translations.es }}
+            </span>
+            <span class="badge bg-primary me-1">
+                {{ pais.translations.fa }}
+            </span>
+            <span class="badge bg-primary me-1">
+                {{ pais.translations.fr }}
+            </span>
+            <span class="badge bg-primary me-1">
+                {{ pais.translations.hr }}
+            </span>
+            <span class="badge bg-primary me-1">
+                {{ pais.translations.it }}
+            </span>
+            <span class="badge bg-primary me-1">
+                {{ pais.translations.ja }}
+            </span>
+            <span class="badge bg-primary me-1">
+                {{ pais.translations.nl }}
+            </span>
+            <span class="badge bg-primary me-1">
+                {{ pais.translations.pt }}
+            </span>
         </div>
     </div>
     <div class="row">
@@ -141,43 +173,6 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Código ISO 639_2: </strong></td><td>{{ pais.languages[0].iso639_2}}</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Traducciones: </strong></td>
-                                    <div >
-                                        <td>
-                                                <span class="badge bg-primary me-1 ">
-                                                    {{ pais.translations.br }}
-                                                </span>
-                                                <span class="badge bg-primary me-1">
-                                                    {{ pais.translations.de }}
-                                                </span>
-                                                <span class="badge bg-primary me-1">
-                                                    {{ pais.translations.es }}
-                                                </span>
-                                                <span class="badge bg-primary me-1">
-                                                    {{ pais.translations.fa }}
-                                                </span>
-                                                <span class="badge bg-primary me-1">
-                                                    {{ pais.translations.fr }}
-                                                </span>
-                                                <span class="badge bg-primary me-1">
-                                                    {{ pais.translations.hr }}
-                                                </span>
-                                                <span class="badge bg-primary me-1">
-                                                    {{ pais.translations.it }}
-                                                </span>
-                                                <span class="badge bg-primary me-1">
-                                                    {{ pais.translations.ja }}
-                                                </span>
-                                                <span class="badge bg-primary me-1">
-                                                    {{ pais.translations.nl }}
-                                                </span>
-                                                <span class="badge bg-primary me-1">
-                                                    {{ pais.translations.pt }}
-                                                </span>
-                                        </td>
-                                    </div>
                                 </tr>
                             </tbody>
                         </table>                  
