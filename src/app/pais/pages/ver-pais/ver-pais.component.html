@@ -1,10 +1,9 @@
 <div *ngIf="!pais; else divPais"
      class="alert row ">
-        <div class="spinner-border text-primary col-4 " role="status">
-            <span class="visually-hidden">Loading...</span>
-        </div>
-        <div class="col-8 mx-auto">
-            Espere por favor.....
+        <div class="col-2"></div>
+        <div class="spinner-border text-primary col-4 mx-auto" role="status"></div>
+        <div class="col-6 mx-auto">
+            Espere por favor .....
         </div>
 </div>
 
@@ -87,6 +86,7 @@
             </span>
         </div>
     </div>
+    <br>
     <div class="row">
         <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -115,7 +115,7 @@
                                 <td><strong>Países Limítrofes: </strong></td>
                                 <div *ngFor="let pais of pais.borders">
                                     <td>
-                                        <a href="/pais/{{pais}}">
+                                        <a [routerLink]="['/pais', pais]">
                                             {{pais}}
                                         </a>
                                     </td>
